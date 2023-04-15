@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+</head>
+<body>
+    <h1 class="mt-5 ml-1">Bienvenido a la pregunta 2</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 col-md-9 col-lg-6 mt-5">
+                <div class="card">
+                    <div class="card-header bg-warning">
+                        <div class="card-title text-black text-center display-5" style="font-weight: bold;">Datos de Usuario</div>
+                    </div>
+                    <div class="card-body">
+                        <form id="formLogin" action="pregunta2.php" method="post" target="_blank">
+                            <div class="form-group">
+                                <label>Nombre y Apellido:</label>
+                                <input id="nombreyapellido" name="nombreyapellido" type="text" class="form-control" placeholder="Nombre del usuario" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label>Dirección:</label>
+                                <input id="direccion" name="direccion" type="text" class="form-control" placeholder="Dirección del usuario" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label>E-mail:</label>
+                                <input id="email" name="email" type="email" class="form-control" placeholder="Correo electrónico" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label>Edad:</label>
+                                <input id="edad" name="edad" type="number" class="form-control" placeholder="18" required>
+                            </div>
+                            <div class="form-goup mt-3">
+                                <button id="enviar" type="submit" class="btn btn-success col-3">Ingresar</button>
+                            </div>
+                            <div class="form-goup mt-3">
+                                <button id="limpiar" type="submit" class="btn btn-secondary col-3">Limpiar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var enviar = document.getElementById("enviar");
+
+        enviar.addEventListener("click", function(event) {
+            var edad = document.getElementById("edad");
+
+            if (edad.value < 18) {
+                alert("Solo mayores de edad");
+                edad.value = "";
+                edad.focus();
+                event.preventDefault();
+            }
+        });
+
+        
+        var limpiarBtn = document.getElementById("limpiar");
+        var formulario = document.getElementById("formLogin");
+
+        limpiarBtn.addEventListener("click", function() {
+            formulario.reset();
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+</body>
+</html>
